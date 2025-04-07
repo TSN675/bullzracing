@@ -427,11 +427,12 @@ function App() {
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-1000 ease-in-out max-h-0 ${
-            isMenuOpen ? 'max-h-60' : ''
-          } md:hidden border-t border-white/5`}
+          className={`transform transition-all duration-500 ease-in-out md:hidden border-t border-white/5 ${
+            isMenuOpen
+              ? 'opacity-100 translate-y-0 max-h-96'
+              : 'opacity-0 -translate-y-5 max-h-0 pointer-events-none'
+          } overflow-hidden`}
         >
-
           <div className="flex overflow-x-auto px-4 py-2 space-x-4 scrollbar-hide">
             {navItems.map((item) => (
               <a
