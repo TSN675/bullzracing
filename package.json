@@ -1,5 +1,6 @@
 {
   "name": "vite-react-typescript-starter",
+  "homepage": "https://TSN675.github.io/bullzracing/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +8,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "start": "react-scripts start",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
-    "gh-pages": "^6.3.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
