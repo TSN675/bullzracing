@@ -393,7 +393,7 @@ function App() {
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
               <img
-                src="${import.meta.env.BASE_URL}Resources\Logos\Bullz text.png"
+                src=".\Resources\Logos\Bullz text.png"
                 alt="BULLZ RACING"
                 className="h-10 w-full object-cover"
               />
