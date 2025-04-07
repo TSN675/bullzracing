@@ -148,7 +148,7 @@ function App() {
   const cars = [
     {
       name: 'BZR 3.1',
-      image: 'Resources/Cars/BZR 3.1 full aero.png',
+      image: './Resources/Cars/BZR 3.1 full aero.png',
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
       description: 'Our latest Formula Student Car featuring aerodynamics and enhanced driver ergonomics.',
       details: {
@@ -165,7 +165,7 @@ function App() {
     },
     {
       name: 'BZR 03',
-      image: 'Resources/Cars/bzr3supra.png',
+      image: './Resources/Cars/bzr3supra.png',
       specs: 'Lightweight Chassis • Optimized Cooling System • Improved Packaging',
       description: 'Bullz Racing\'s third Formula Student Car, featuring a lightweight chassis with lower center of gravity and improduction of Passive Aerodynamic Devices such as Sidepods.',
       details: {
@@ -182,7 +182,7 @@ function App() {
     },
     {
       name: 'BZR 2.1',
-      image: 'Resources/Cars/Bullz x FB 23 (124) - Copy.JPG',
+      image: './Resources/Cars/Bullz x FB 23 (124) - Copy.JPG',
       specs: 'Improvised In-House Manufacturing of Composites • Basic Telemetry • Improved Driver Safety',
       description: 'Our first car to participate in Formula Bharat.',
       details: {
@@ -199,7 +199,7 @@ function App() {
     },
     {
       name: 'BZR 02',
-      image: 'Resources/Cars/IMG-20230713-WA0011.jpg',
+      image: './Resources/Cars/IMG-20230713-WA0011.jpg',
       specs: 'Pushrod Suspension • Lighter Bodywork • Bezier Curve Intake',
       description: 'First BZR car to clear Technical Scrutiny and participate in Endurance.',
       details: {
@@ -216,7 +216,7 @@ function App() {
     },
     {
       name: 'BZR 01',
-      image: 'Resources/Cars/IMG_5969.JPG',
+      image: './Resources/Cars/IMG_5969.JPG',
       specs: 'Combustion Engine • First FS Car • 390cc Engine',
       description: "BZR 01 was Bullz Racing's first Formula Student Car, transitioning from Go-Karts and Formula E-Baja.",
       details: {
