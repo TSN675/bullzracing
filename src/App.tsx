@@ -43,25 +43,25 @@ function App() {
 
   const heroSlides = [
     {
-      image: 'Resources/Home/fb25home.jpg',
+      image: './Resources/Home/fb25home.jpg',
       title: '6th Overall',
       subtitle: 'Formula Bharat 2025',
       desc: 'Kari Motor Speedway, Coimbatore'
     },
     {
-      image: "Resources/Home/bzr3.1.jpg",
+      image: "./Resources/Home/bzr3.1.jpg",
       title: 'BZR-3.1',
       subtitle: 'FB \'25',
       desc: 'Kari Motor Speedway, Coimbatore'
     },
     {
-      image: 'Resources/Home/supra24home.JPG',
+      image: './Resources/Home/supra24home.JPG',
       title: '4th Overall',
       subtitle: 'Supra SAEIndia 2024',
       desc: 'Buddh International Circuit, Noida'
     },
     {
-      image: "Resources/Cars/bzr3supra.png",
+      image: "./Resources/Cars/bzr3supra.png",
       title: 'BZR-03',
       subtitle: 'Supra \'24',
       desc: 'Buddh International Circuit, Noida'
@@ -73,15 +73,15 @@ function App() {
       year: '2025',
       title: '6th Overall',
       event: 'Formula Bharat',
-      description: "Bullz Racing's second time at Formula Bharat, the team, along with the BZR 3.1, brought home the results that follow, while learning from our experiences from FB '24",
+      description: "Bullz Racing's second time at Formula Bharat, the team, along with the BZR 3.1, brought home the results that follow, while learning from our experiences from FB '24.",
       points: [
         { name: 'Engineering Design Presentation', score: 3 },
         { name: 'Business Plan Presentation', score: 4 },
         { name: 'Cost Report', score: 8 }
       ],
       images: [
-        'Resources/Achievements/fb25ach1.jpg',
-        'Resources/Achievements/fb25ach2.jpg',
+        './Resources/Achievements/fb25ach1.jpg',
+        './Resources/Achievements/fb25ach2.jpg',
       ],
     }
     ,
@@ -100,8 +100,8 @@ function App() {
         { name: 'Skidpad', score: 8 }
       ],
       images: [
-        'Resources/Achievements/supra24ach1.JPG',
-        'Resources/Achievements/supra24ach2.JPG',
+        './Resources/Achievements/supra24ach1.JPG',
+        './Resources/Achievements/supra24ach2.JPG',
       ],
     },
     {
@@ -115,8 +115,8 @@ function App() {
         { name: 'Cost Report', score: 11 },
       ],
       images: [
-        'Resources/Achievements/fb24ach1.JPG',
-        'Resources/Achievements/fb24ach2.JPG',
+        './Resources/Achievements/fb24ach1.JPG',
+        './Resources/Achievements/fb24ach2.JPG',
       ],
     },
     {
@@ -130,8 +130,8 @@ function App() {
         { name: 'Business Plan Presentation Design', score: 7 },
       ],
       images: [ 
-        'Resources/Achievements/supra23ach1.jpg',
-        'Resources/Achievements/supra23ach2.jpg',
+        './Resources/Achievements/supra23ach1.jpg',
+        './Resources/Achievements/supra23ach2.jpg',
       ],
     },
     {
@@ -140,7 +140,7 @@ function App() {
       event: 'Supra SAEIndia',
       description: 'First event that Bullz Racing participated in after transitioning from Go-Karts to Formula Student. We cleared Mechanical Scrutiny and Tilt test, providing a stepping stone into Formula Student',
       images: [
-        'Resources/Achievements/supra22ach1.jpg'
+        './Resources/Achievements/supra22ach1.jpg'
       ],
     },
   ];
@@ -159,8 +159,8 @@ function App() {
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
-        'Resources/Cars/IMG_7600.jpg',
-        'Resources/Cars/BZR 3.1 full cropped.png',
+        './Resources/Cars/IMG_7600.jpg',
+        './Resources/Cars/BZR 3.1 full cropped.png',
       ],
     },
     {
@@ -176,8 +176,8 @@ function App() {
         features: ['Lightweight Reinforced Chassis', 'Optimised Exhaust System', 'Redesigned Intake System'],
       },
       images: [
-        'Resources/Cars/bzr3supra.png',
-        'Resources/Cars/DSCF6872.JPG',
+        './Resources/Cars/bzr3supra.png',
+        './Resources/Cars/DSCF6872.JPG',
       ],
     },
     {
@@ -193,8 +193,8 @@ function App() {
         features: ['Regenerative braking', 'Aluminium chassis', 'Custom battery pack'],
       },
       images: [
-        'Resources/Cars/Bullz x FB 23 (124) - Copy.JPG',
-        'Resources/Cars/Bullz x FB 23 (17).JPG',
+        './Resources/Cars/Bullz x FB 23 (124) - Copy.JPG',
+        './Resources/Cars/Bullz x FB 23 (17).JPG',
       ],
     },
     {
@@ -210,8 +210,8 @@ function App() {
         features: ['Custom Differential', 'Pushrod Suspension', 'Improved Packaging'],
       },
       images: [
-        'Resources/Cars/IMG-20230713-WA0011.jpg',
-        'Resources/Cars/Supra 2023.jpg',
+        './Resources/Cars/IMG-20230713-WA0011.jpg',
+        './Resources/Cars/Supra 2023.jpg',
       ],
     },
     {
@@ -227,8 +227,8 @@ function App() {
         features: ['Steel tube frame', 'Manual sequential gearbox', 'Basic telemetry'],
       },
       images: [
-        'Resources/Cars/IMG_5969.JPG',
-        'Resources/Cars/20220824_192525.jpg',
+        './Resources/Cars/IMG_5969.JPG',
+        './Resources/Cars/20220824_192525.jpg',
       ],
     },
   ];
@@ -267,97 +267,97 @@ function App() {
     {
       name: "Ace Micromatic Group",
       category: "Monetary",
-      logo: "Resources/Sponsors/AM group logo white.png",
+      logo: "./Resources/Sponsors/AM group logo white.png",
       description: "Ace Micromatic Group is India's largest machine tool conglomerate, offering a comprehensive range of CNC machines, automation solutions, and industrial IoT technologies for manufacturing industries.",
       website: "https://www.acemicromatic.net/"
     },
     {
       name: "3dconnexion",
       category: "In-kind",
-      logo: "Resources/Sponsors/3dconnexion_logo.png",
+      logo: "./Resources/Sponsors/3dconnexion_logo.png",
       description: "3Dconnexion designs powerful, research-based ergonomic hardware and smart, easy-to-use software that combine seamlessly to make working in the world's most popular CAD applications and 3D environments fast, comfortable and fun.",
       website: "https://3dconnexion.com/us/"
     },
     {
       name: "Ansys",
       category: "Software",
-      logo: "Resources/Sponsors/Ansys.png",
+      logo: "./Resources/Sponsors/Ansys.png",
       description: "ANSYS, Inc. is the leader in multiphysics simulation software. For more than 50 years, Ansys software has enabled innovators across industries to push boundaries by using the predictive power of simulation.",
       website: "https://www.ansys.com/en-in"
     },
     {
       name: "Magod Laser",
       category: "In-kind",
-      logo: "Resources/Sponsors/Magod laser.png",
+      logo: "./Resources/Sponsors/Magod laser.png",
       description: "Magod Laser, leader in Laser Based Manufacturing in India, has consistently built recognized expertise, helping customers to adopt laser based manufacturing processes & applications for numerous industries since 1997.",
       website: "https://www.magodlaser.in/"
     },
     {
       name: "GT-SUITE",
       category: "Software",
-      logo: "Resources/Sponsors/GT.png",
+      logo: "./Resources/Sponsors/GT.png",
       description: "GT-SUITE is the industry-leading simulation tool with capabilities and libraries aimed at a wide variety of applications and industries.",
       website: "https://www.gtisoft.com/gt-suite/"
     },
     {
       name: "Makenica",
       category: "In-kind",
-      logo: "Resources/Sponsors/Makenica.png",
+      logo: "./Resources/Sponsors/Makenica.png",
       description: "Makenica is a leading online platform offering rapid prototyping and production services, specializing in 3D printing, CNC machining, vacuum casting, and injection molding. ",
       website: "https://makenica.com/"
     },
     {
       name: "MathWorks",
       category: "Software",
-      logo: "Resources/Sponsors/Mathworks.png",
+      logo: "./Resources/Sponsors/Mathworks.png",
       description: "MathWorks is the creator of MATLAB and Simulink, providing powerful tools for engineers and scientists to design, analyze, and visualize data. Their solutions are used worldwide across industries to accelerate innovation and improve productivity in engineering and scientific workflows.",
       website: "https://in.mathworks.com/"
     },
     {
       name: "Ricardo",
       category: "Software",
-      logo: "Resources/Sponsors/Ricardo.png",
+      logo: "./Resources/Sponsors/Ricardo.png",
       description: "Ricardo offers advanced simulation, design, and analysis services to optimize product development, reduce costs, and accelerate time to market across industries like automotive, aerospace, and maritime.",
       website: "https://www.ricardo.com/en/"
     },
     {
       name: "Simscale",
       category: "Software",
-      logo: "Resources/Sponsors/SimScale.png",
+      logo: "./Resources/Sponsors/SimScale.png",
       description: "SimScale is a cloud-based engineering simulation platform that enables designers and engineers to perform CFD, FEA, and thermal simulations directly in their web browser.",
       website: "https://www.simscale.com/"
     },
     {
       name: "Solidworks",
       category: "Software",
-      logo: "Resources/Sponsors/SolidWorks_Logo.png",
+      logo: "./Resources/Sponsors/SolidWorks_Logo.png",
       description: "SOLIDWORKS is a leading 3D CAD software that provides powerful design, simulation, and product development solutions for engineers and designers worldwide.",
       website: "https://www.solidworks.com/"
     },
     {
       name: "Thynke",
       category: "Monetary",
-      logo: "Resources/Sponsors/THYNKE.png",
+      logo: "./Resources/Sponsors/THYNKE.png",
       description: "Thynke Services Private Limited offers customized training programs to enhance individuals' soft skills, aptitude, verbal, and technical abilities, aiming to bridge the gap between campus and corporate environments. ",
       website: "https://thynke.co.in/"
     },
     {
       name: "VI-Grade",
       category: "Software",
-      logo: "Resources/Sponsors/Vi-grade white.png",
+      logo: "./Resources/Sponsors/Vi-grade white.png",
       description: "VI-grade is a leading provider of simulation and driving simulator solutions for automotive, motorsport, aerospace, and railway industries, enabling virtual prototyping and real-time testing.",
       website: "https://techsponsor12.com"
     },
     {
       name: "Copperstone Consulting",
       category: "Monetary",
-      logo: "Resources/Sponsors/Copperstone Consulting.png",
+      logo: "./Resources/Sponsors/Copperstone Consulting.png",
       description: "TO BE UPDATED"
     },
     {
       name: "Srinivasa Garage",
       category: "In-kind",
-      logo: "Resources/Sponsors/Srinivasa Garage.png",
+      logo: "./Resources/Sponsors/Srinivasa Garage.png",
       description: "Specializing in premium paint, bodywork, and interior services, Srinivasa Garage is a one-stop 4-wheeler restoration and repair garage.",
     },
     {
@@ -370,7 +370,7 @@ function App() {
     {
       name: "Become a Sponsor",
       category: "Join us!",
-      logo: "Resources/Sponsors/Plus.png",
+      logo: "./Resources/Sponsors/Plus.png",
       description: "Enhancing downforce to improve race car stability.",
       website: "https://techsponsor16.com"
     }
@@ -393,7 +393,7 @@ function App() {
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
               <img
-                src="Resources\Logos\Bullz text.png"
+                src="./Resources\Logos\Bullz text.png"
                 alt="BULLZ RACING"
                 className="h-10 w-full object-cover"
               />
@@ -523,7 +523,7 @@ function App() {
               transition={{ duration: 0.5 }}
             >
               <img
-                src="Resources/Achievements/fb25ach1.jpg"
+                src="./Resources/Achievements/fb25ach1.jpg"
                 alt="Team working"
                 className="rounded-lg shadow-xl w-128"
               />
@@ -660,7 +660,7 @@ function App() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-top">
             <div className="flex justify-center">
               <img
-                src="Resources/Logos/Bullz Logo_Best.png"
+                src="./Resources/Logos/Bullz Logo_Best.png"
                 alt="BULLZ RACING"
                 className="h-72 w-auto object-contain"
               />
