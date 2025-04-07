@@ -395,7 +395,7 @@ function App() {
               <img
                 src=".\Resources\Logos\Bullz text.png"
                 alt="BULLZ RACING"
-                className="h-10 w-full object-cover"
+                className="h-10 w-auto object-cover"
               />
             </div>
 
