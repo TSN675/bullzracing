@@ -80,8 +80,8 @@ function App() {
         { name: 'Cost Report', score: 8 }
       ],
       images: [
-        '/bullzracing/Resources/Achievements/fb25ach1.jpg',
-        '/bullzracing/Resources/Achievements/fb25ach2.jpg',
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb25ach1.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb25ach2.jpg`,
       ],
     }
     ,
