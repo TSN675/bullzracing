@@ -43,7 +43,7 @@ function App() {
 
   const heroSlides = [
     {
-      image: '/bullzracing/Resources/Home/fb25home.jpg',
+      image: '/bullzracing/public/Resources/Home/fb25home.jpg',
       title: '6th Overall',
       subtitle: 'Formula Bharat 2025',
       desc: 'Kari Motor Speedway, Coimbatore'
