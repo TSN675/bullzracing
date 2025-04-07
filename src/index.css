@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-yellow-500/50 rounded-full hover:bg-yellow-500/70;
+}
+
+.text-gold {
+  color: #d1a100;
+}
+
+.text-silver {
+  color: #C0C0C0;
+}
+
+.bg-gold {
+  background-color: #d1a100;
+}
+
+.border-gold {
+  border-color: #d1a100;
+}
+
+.bg-dark {
+  background-color: #000000;
+}
+
+.bg-dark-secondary {
+  background-color: #0A0A0A;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Swiper styles */
+.swiper-pagination-bullet {
+  @apply bg-amber-500 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-amber-500 !important;
+}
+
+.swiper-pagination {
+  @apply relative mt-4 !important;
+}
