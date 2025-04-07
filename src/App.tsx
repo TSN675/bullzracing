@@ -544,10 +544,13 @@ function App() {
                   <p className="text-3xl font-bold text-gold mb-2">50+</p>
                   <p className="text-silver">Team Members</p>
                 </div>
-                <div className="glass-card p-6 rounded-lg text-center">
-                  <p className="text-3xl font-bold text-gold mb-2">5</p>
-                  <p className="text-silver">Completed FS Cars</p>
-                </div>
+                <a href="#cars">
+                  <div className="glass-card p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform">
+                    <p className="text-3xl font-bold text-gold mb-2">5</p>
+                    <p className="text-silver">Completed FS Cars</p>
+                  </div>
+                </a>
+
               </div>
             </motion.div>
           </div>
