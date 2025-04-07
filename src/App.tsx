@@ -427,7 +427,7 @@ function App() {
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-500 ease-in-out max-h-0 ${
+          className={`overflow-hidden transition-all duration-1000 ease-in-out max-h-0 ${
             isMenuOpen ? 'max-h-60' : ''
           } md:hidden border-t border-white/5`}
         >
