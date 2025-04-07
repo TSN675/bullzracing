@@ -393,7 +393,7 @@ function App() {
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
               <img
-                src=".\Resources\Logos\Bullz text.png"
+                src="./Resources/Logos/Bullz text.png"
                 alt="BULLZ RACING"
                 className="h-10 w-auto object-cover"
               />
@@ -436,6 +436,7 @@ function App() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                onClick={() => setIsMenuOpen(false)}
                 className={`flex-shrink-0 text-sm font-medium transition-colors whitespace-nowrap ${
                   activeSection === item.id
                     ? 'text-gold'
