@@ -123,7 +123,7 @@ function App() {
       year: '2023',
       title: '9th Overall',
       event: 'Supra SAEIndia',
-      description: 'Swifty cleared Technical Scrutiny and participated in Endurance. opportunity of driving on track helped identify bzr2s strength and weaknesses ',
+      description: 'Swiftly cleared Technical Scrutiny and participated in Endurance. opportunity of driving on track helped identify bzr2s strength and weaknesses ',
       points: [
         { name: 'Computer Aided Engineering', score: 2 },
         { name: 'Engineering Design Presentation', score: 5 },
