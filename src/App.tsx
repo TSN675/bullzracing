@@ -89,7 +89,7 @@ function App() {
       year: '2024',
       title: '4th Overall',
       event: 'Supra SAEIndia',
-      description: 'Supra \'24 was BZR-03\'s debut event, and saw the team attempt all dynamic events for the first time. Experience from 23 helped complete endurance',
+      description: 'Supra \'24 was BZR-03\'s debut event, and saw the team attempt all dynamic events for the first time. Our experience from Supra \'23 helped us compete in, and complete endurance.',
       points: [
         { name: 'Computer Aided Engineering', score: 2 },
         { name: 'Autocross', score: 3 },
@@ -123,7 +123,7 @@ function App() {
       year: '2023',
       title: '9th Overall',
       event: 'Supra SAEIndia',
-      description: 'Swifty cleared Technical Scrutiny and participated in Endurance. opportunity of driving on track helped identify bzr2s strength and weaknesses ',
+      description: 'Swifty cleared Technical Scrutiny and participated in Endurance. We were given our first opportunity of driving on track, which helped identify BZR 02\'s strengths and weaknesses. ',
       points: [
         { name: 'Computer Aided Engineering', score: 2 },
         { name: 'Engineering Design Presentation', score: 5 },
@@ -150,7 +150,7 @@ function App() {
       name: 'BZR 3.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full aero.png`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
-      description: 'Our latest Formula Student Car featuring aerodynamics and enhanced driver ergonomics.',
+      description: 'Our latest Formula Student Car featuring a full aerodynamics package and enhanced driver ergonomics.',
       details: {
         powertrain: 'Combustion',
         power: '32 hp / 31 Nm Torque',
@@ -184,7 +184,7 @@ function App() {
       name: 'BZR 2.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/Bullz x FB 23 (124) - Copy.JPG`,
       specs: 'Improvised In-House Manufacturing of Composites • Basic Telemetry • Improved Driver Safety',
-      description: 'Our first car to participate in Formula Bharat.',
+      description: 'With some upgrades from BZR 02, BZR 2.1 was our first car to participate in Formula Bharat.',
       details: {
         powertrain: 'Combustion',
         power: '32 hp / 31 Nm Torque',
@@ -201,7 +201,7 @@ function App() {
       name: 'BZR 02',
       image: `${import.meta.env.BASE_URL}Resources/Cars/IMG-20230713-WA0011.jpg`,
       specs: 'Pushrod Suspension • Lighter Bodywork • Bezier Curve Intake',
-      description: 'First BZR car to clear Technical Scrutiny and participate in Endurance.',
+      description: 'BZR 02 was our first car to clear Technical Scrutiny and participate in Endurance at SAE Supra.',
       details: {
         powertrain: 'Combustion',
         power: '31.8 hp / 25 Nm Torque',
