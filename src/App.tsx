@@ -365,7 +365,7 @@ function App() {
       category: "In-Kind",
       logo: "https://example.com/logo15.png",
       description: "Engineering high-performance electric drivetrains.",
-      website: "https://techsponsor15.com"
+      website: "http://bullzracing.com/#contact"
     },
     {
       name: "Become a Sponsor",
