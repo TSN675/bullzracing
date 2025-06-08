@@ -345,8 +345,22 @@ function App() {
       name: "VI-Grade",
       category: "Software",
       logo: `${import.meta.env.BASE_URL}Resources/Sponsors/Vi-grade white.png`,
-      description: "VI-grade is a leading provider of simulation and driving simulator solutions for automotive, motorsport, aerospace, and railway industries, enabling virtual prototyping and real-time testing.",
-      website: "https://techsponsor12.com"
+      description: (
+        <>
+          VI-grade is a leading provider of simulation and driving simulator solutions for automotive, motorsport, aerospace, and railway industries, enabling virtual prototyping and real-time testing.<br /><br />
+          Connect with VI-Grade on:<br />
+          <a href="https://www.linkedin.com/company/vi-grade" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+            LinkedIn
+          </a><br />
+          <a href="https://www.youtube.com/user/vigrade01" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+            YouTube
+          </a><br />
+          <a href="https://www.facebook.com/VirtualFormula/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+            Facebook
+          </a>
+        </>
+      ),
+      website: "https://www.vi-grade.com/"
     },
     {
       name: "Copperstone Consulting",
@@ -365,14 +379,13 @@ function App() {
       category: "In-Kind",
       logo: "https://example.com/logo15.png",
       description: "Engineering high-performance electric drivetrains.",
-      website: "http://bullzracing.com/#contact"
     },
     {
       name: "Become a Sponsor",
       category: "Join us!",
       logo: `${import.meta.env.BASE_URL}Resources/Sponsors/Plus.png`,
       description: "Enhancing downforce to improve race car stability.",
-      website: "https://techsponsor16.com"
+      website: "http://bullzracing.com/#contact"
     }
   ];
 
