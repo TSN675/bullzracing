@@ -123,7 +123,7 @@ function App() {
       year: '2023',
       title: '9th Overall',
       event: 'Supra SAEIndia',
-      description: 'Swifty cleared Technical Scrutiny and participated in Endurance. We were given our first opportunity of driving on track, which helped identify BZR 02\'s strengths and weaknesses. ',
+      description: 'Swiftly cleared Technical Scrutiny and participated in Endurance. opportunity of driving on track helped identify bzr2s strength and weaknesses ',
       points: [
         { name: 'Computer Aided Engineering', score: 2 },
         { name: 'Engineering Design Presentation', score: 5 },
@@ -365,7 +365,7 @@ function App() {
       category: "In-Kind",
       logo: "https://example.com/logo15.png",
       description: "Engineering high-performance electric drivetrains.",
-      website: "https://techsponsor15.com"
+      website: "http://bullzracing.com/#contact"
     },
     {
       name: "Become a Sponsor",
