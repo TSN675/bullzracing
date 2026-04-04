@@ -800,9 +800,6 @@ function App() {
                     <h4 className="text-2xl font-semibold text-gold">FB ’26: The One That Changed Us</h4>
                     <p className="text-silver mt-2">Open the full blog page for the complete story.</p>
                   </div>
-                  {isBlogLoading && <p className="text-silver">Loading blog content…</p>}
-                  {blogError && <p className="text-red-400">{blogError}</p>}
-                  {!isBlogLoading && !blogError && renderBlogParagraphs(blogText)}
                 </div>
               ) : (
                 <p className="text-silver text-lg leading-relaxed">
