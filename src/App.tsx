@@ -58,6 +58,30 @@ function App() {
 
   const heroSlides = [
     {
+      image: `${import.meta.env.BASE_URL}Resources/Home/fb26home.jpg`,
+      title: '4th Overall',
+      subtitle: 'Formula Bharat 2026',
+      desc: 'Kari Motor Speedway, Coimbatore'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4.jpg`,
+      title: 'BZR-4',
+      subtitle: 'BZR 4 Reveal',
+      desc: 'BMSCE, Bengaluru'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Home/supra25home.jpg`,
+      title: '5th Overall',
+      subtitle: 'Supra SAEIndia 2025',
+      desc: 'Buddh International Circuit, Noida'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
+      title: 'BZR-3.2',
+      subtitle: 'Supra \'25',
+      desc: 'Buddh International Circuit, Noida'
+    },
+    {
       image: `${import.meta.env.BASE_URL}Resources/Home/fb25home.jpg`,
       title: '6th Overall',
       subtitle: 'Formula Bharat 2025',
@@ -76,7 +100,7 @@ function App() {
       desc: 'Buddh International Circuit, Noida'
     },
     {
-      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr3supra.png`,
+      image: `${import.meta.env.BASE_URL}Resources/Home/bzr3supra.png`,
       title: 'BZR-03',
       subtitle: 'Supra \'24',
       desc: 'Buddh International Circuit, Noida'
@@ -732,12 +756,12 @@ function App() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div className="glass-card p-6 rounded-lg text-center">
-                  <p className="text-3xl font-bold text-gold mb-2">50+</p>
+                  <p className="text-3xl font-bold text-gold mb-2">80+</p>
                   <p className="text-silver">Team Members</p>
                 </div>
                 <a href="#cars">
                   <div className="glass-card p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform">
-                    <p className="text-3xl font-bold text-gold mb-2">5</p>
+                    <p className="text-3xl font-bold text-gold mb-2">6</p>
                     <p className="text-silver">Completed FS Cars</p>
                   </div>
                 </a>
