@@ -262,7 +262,7 @@ function App() {
     },
     {
       name: 'BZR 3.2',
-      image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.2 edited.jpg`,
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
       description: 'Our first Formula Student Car to feature a full aerodynamics package.',
       details: {
