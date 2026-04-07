@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Trophy, Users, Building2, MessageSquare, Menu, X, ChevronLeft, ChevronRight, Mail, Phone, MapPin, ExternalLink} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -37,9 +39,22 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedAchievement, setSelectedAchievement] = useState<number | null>(null);
-  const [selectedCar, setSelectedCar] = useState<number | null    >(null);
+  const [selectedCar, setSelectedCar] = useState<number | null>(null);
+  const [selectedInsight, setSelectedInsight] = useState<number | null>(null);
+  const [blogText, setBlogText] = useState<string>('');
+  const [isBlogLoading, setIsBlogLoading] = useState(false);
+  const [blogError, setBlogError] = useState<string | null>(null);
+  const [page, setPage] = useState<'home' | 'blog'>('home');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  const openBlogPage = () => {
+    setSelectedInsight(null);
+    window.location.hash = '#blog';
+  };
+
+  const closeBlogPage = () => {
+    window.location.hash = '';
+  };
 
   const heroSlides = [
     {
@@ -142,6 +157,25 @@ function App() {
       images: [
         `${import.meta.env.BASE_URL}Resources/Achievements/supra22ach1.jpg`
       ],
+    },
+  ];
+
+  const insights = [
+    {
+      title: 'Blogs',
+      description: 'Read our latest behind-the-scenes stories, engineering insights, and race prep highlights from the Bullz Racing team.',
+      content: '',
+      source: '/Resources/Blogs/FB26.md',
+    },
+    {
+      title: 'Newsletters',
+      description: "Stay updated on what's happening with the team and receive progress reports delivered directly to our motorsport community.",
+      content: '',
+    },
+    {
+      title: 'Updates',
+      description: 'Stay informed regarding all team announcements and club acitivities from Bullz Racing.',
+      content: 'Coming soon!',
     },
   ];
 
@@ -262,6 +296,128 @@ function App() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const updatePage = () => {
+      setPage(window.location.hash === '#blog' ? 'blog' : 'home');
+    };
+
+    updatePage();
+    window.addEventListener('hashchange', updatePage);
+    return () => window.removeEventListener('hashchange', updatePage);
+  }, []);
+
+  useEffect(() => {
+    const shouldLoadBlog = selectedInsight === 0 || page === 'blog';
+    if (!shouldLoadBlog) {
+      setBlogText('');
+      setBlogError(null);
+      setIsBlogLoading(false);
+      return;
+    }
+
+    const insight = insights[0];
+    if (!insight.source) {
+      setBlogText('');
+      setBlogError(null);
+      setIsBlogLoading(false);
+      return;
+    }
+
+    setIsBlogLoading(true);
+    setBlogError(null);
+
+    const controller = new AbortController();
+
+    fetch(insight.source, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to load blog content.');
+        }
+        return response.text();
+      })
+      .then((text) => {
+        const resolvedText = text
+          .replace(/\$\{import\.meta\.env\.BASE_URL\}/g, import.meta.env.BASE_URL)
+          .replace(/\r\n/g, '\n');
+        setBlogText(resolvedText);
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          setBlogError(error.message);
+        }
+      })
+      .finally(() => setIsBlogLoading(false));
+
+    return () => controller.abort();
+  }, [selectedInsight, page]);
+
+  const renderBlogParagraphs = (text: string) => (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        h1: ({ node, ...props }) => (
+          <h1 className="text-4xl font-bold text-gold mb-6" {...props} />
+        ),
+        h2: ({ node, ...props }) => (
+          <h2 className="text-3xl font-bold text-gold mb-5" {...props} />
+        ),
+        h3: ({ node, ...props }) => (
+          <h3 className="text-2xl font-bold text-gold mb-4" {...props} />
+        ),
+        h4: ({ node, ...props }) => (
+          <h4 className="text-xl font-bold text-gold mb-3" {...props} />
+        ),
+        strong: ({ node, ...props }) => (
+          <strong className="font-bold text-white" {...props} />
+        ),
+        em: ({ node, ...props }) => (
+          <em className="italic text-silver" {...props} />
+        ),
+        p: ({ node, ...props }: any) => {
+          const children = React.Children.toArray(props.children);
+          const isImageOnly =
+            children.length > 0 &&
+            children.every((child) =>
+              typeof child === 'string'
+                ? child.trim() === ''
+                : React.isValidElement(child) && child.type === 'img'
+            );
+
+          return (
+            <p
+              className={`text-silver leading-relaxed mb-6 ${
+                isImageOnly ? 'flex flex-wrap justify-center gap-6' : ''
+              }`}
+              {...props}
+            />
+          );
+        },
+        img: ({ node, ...props }: any) => {
+          const src = props.src?.startsWith('/')
+            ? `${import.meta.env.BASE_URL}${props.src.replace(/^\/+/, '')}`
+            : props.src;
+
+          const rawTitle = props.title ?? '';
+          const classMatch =
+            rawTitle.match(/class=(?:(?:"([^"]+)")|(?:'([^']+)')|([^"']+))/) ?? [];
+          const titleClasses = classMatch[1] || classMatch[2] || classMatch[3] || rawTitle;
+
+          return (
+            <img
+              className={`rounded-3xl border border-white/10 shadow-xl my-8 w-full max-w-5xsm mx-auto block ${titleClasses}`.trim()}
+              {...props}
+              src={src}
+              loading="eager"
+              decoding="sync"
+            />
+          );
+        },
+      }}
+    >
+      {text}
+    </ReactMarkdown>
+  );
 
   const sponsors = [
     {
@@ -392,6 +548,7 @@ function App() {
   const navItems = [
     { id: 'home', label: 'Home', icon: null },
     { id: 'about', label: 'About Us', icon: Users },
+    { id: 'insights', label: 'Insights', icon: MessageSquare },
     { id: 'achievements', label: 'Achievements', icon: Trophy },
     { id: 'cars', label: 'Our Cars', icon: Building2 },
     { id: 'sponsors', label: 'Sponsors', icon: Building2 },
@@ -466,21 +623,40 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen relative overflow-hidden">
-        <div className="relative h-screen">
-          <button
-            onClick={handlePrevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 p-3 rounded-full text-gold hover:bg-black/70 transition-colors"
-          >
-            <ChevronLeft size={32} />
-          </button>
-          <button
-            onClick={handleNextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 p-3 rounded-full text-gold hover:bg-black/70 transition-colors"
-          >
-            <ChevronRight size={32} />
-          </button>
-          {heroSlides.map((slide, index) => (
+      {page === 'blog' ? (
+        <section className="min-h-screen py-20 bg-dark">
+          <div className="max-w-5xl mx-auto px-4">
+            <button
+              onClick={closeBlogPage}
+              className="mb-8 inline-flex items-center rounded-full border border-white/20 bg-black/50 px-4 py-2 text-sm text-white transition hover:bg-black/70"
+            >
+              ← Back to Bullz Racing
+            </button>
+            <div className="glass-card rounded-3xl p-10 bg-black/70 border border-white/10">
+              <h1 className="text-4xl font-bold text-gold mb-4">FB ’26: The One That Changed Us</h1>
+              {isBlogLoading && <p className="text-silver">Loading blog content…</p>}
+              {blogError && <p className="text-red-400">{blogError}</p>}
+              {!isBlogLoading && !blogError && renderBlogParagraphs(blogText)}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          <section id="home" className="min-h-screen relative overflow-hidden">
+            <div className="relative h-screen">
+              <button
+                onClick={handlePrevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 p-3 rounded-full text-gold hover:bg-black/70 transition-colors"
+              >
+                <ChevronLeft size={32} />
+              </button>
+              <button
+                onClick={handleNextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 p-3 rounded-full text-gold hover:bg-black/70 transition-colors"
+              >
+                <ChevronRight size={32} />
+              </button>
+              {heroSlides.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -571,6 +747,69 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Insights Section */}
+      <section id="insights" className="py-20 bg-dark">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center text-gold">Insights</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {insights.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card p-8 rounded-xl cursor-pointer hover:-translate-y-1 hover:shadow-2xl transition-transform"
+                onClick={() => setSelectedInsight(index)}
+              >
+                <h3 className="text-2xl font-bold text-gold mb-4">{item.title}</h3>
+                <p className="text-silver leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+        </>
+      )}
+
+      <AnimatePresence>
+        {selectedInsight !== null && (
+          <Modal isOpen={true} onClose={() => setSelectedInsight(null)}>
+            <motion.div
+              className="space-y-6 relative p-4"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <button
+                onClick={() => setSelectedInsight(null)}
+                className="absolute top-2 right-2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
+              >
+                ✕
+              </button>
+
+              <h3 className="text-3xl font-bold text-gold">{insights[selectedInsight].title}</h3>
+              {selectedInsight === 0 ? (
+                <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                  <div
+                    className="rounded-3xl border border-white/10 bg-black/50 p-5 cursor-pointer transition hover:border-gold hover:bg-white/5"
+                    onClick={openBlogPage}
+                  >
+                    <h4 className="text-2xl font-semibold text-gold">FB ’26: The One That Changed Us</h4>
+                    <p className="text-silver mt-2">Open the full blog page for the complete story.</p>
+                  </div>
+                </div>
+              ) : (
+                <p className="text-silver text-lg leading-relaxed">
+                  {insights[selectedInsight].content || 'Content will be available here soon.'}
+                </p>
+              )}
+            </motion.div>
+          </Modal>
+        )}
+      </AnimatePresence>
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 bg-dark-secondary">
