@@ -109,6 +109,45 @@ function App() {
 
   const achievements = [
     {
+      year: '2026',
+      title: '4th Overall',
+      event: 'Formula Bharat',
+      description: "Our first time participating in dynamic events at Formula Bharat, and our first time completing endurance at FB :)\n A culmination of all our past learnings, and a gateway to all that follows.",
+      points: [
+        { name: 'Endurance', score: 2 },
+        { name: 'Engineering Design Presentation', score: 3 },
+        { name: 'Business Plan Presentation', score: 5 },
+        { name: 'Cost Report', score: 8 }
+      ],
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach1.jpeg`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach2.jpg`,
+      ],
+    }
+    ,
+    {
+      year: '2026',
+      title: '5th Overall',
+      event: 'Supra SAEIndia',
+      description: 'Bullz Racing was the first team to complete Technical Inspection at Supra \'25, showcasing our progress in preparation, while performing to our maximum potential at dynamic events.',
+      points: [
+        { name: 'First Team to Clear TI'},
+        { name: 'Best in Engineering Excellence'},
+        { name: 'Computer Aided Engineering', score: 2 },
+        { name: 'Skidpad', score: 4 },
+        { name: 'Endurance', score: 5 },
+        { name: 'Autocross', score: 7 },
+        { name: 'Acceleration', score: 8 },
+        
+        { name: 'Business Plan Presentation Design', score: 5 },
+        { name: 'Engineering Design Presentation', score: 5 }        
+      ],
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach1.JPG`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach2.JPG`,
+      ],
+    },
+    {
       year: '2025',
       title: '6th Overall',
       event: 'Formula Bharat',
@@ -205,13 +244,47 @@ function App() {
 
   const cars = [
     {
+      name: 'BZR 4',
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4cropped.jpg`,
+      specs: 'Custom Lightweight Aero Kit • Digital Dashboard • Improvised DAQ',
+      description: 'Our first 10 inch (whee dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
+      details: {
+        powertrain: 'Combustion',
+        power: '27 hp / 23 Nm Torque',
+        acceleration: '5.2s • 75m',
+        weight: '255 kg',
+        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
+      },
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr4track.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr4rolling.jpeg`,
+      ],
+    },
+    {
+      name: 'BZR 3.2',
+      image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.2 edited.jpg`,
+      specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
+      description: 'Our first Formula Student Car to feature a full aerodynamics package.',
+      details: {
+        powertrain: 'Combustion',
+        power: '29 hp / 23 Nm Torque',
+        acceleration: '5.2s • 75m',
+        weight: '255 kg',
+        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
+      },
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Cars/IMG_7600.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full cropped.png`,
+      ],
+    },
+    {
       name: 'BZR 3.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full aero.png`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
-      description: 'Our latest Formula Student Car featuring a full aerodynamics package and enhanced driver ergonomics.',
+      description: 'Our first Formula Student Car to feature a full aerodynamics package.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.2s • 75m',
         weight: '255 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
@@ -228,7 +301,7 @@ function App() {
       description: 'Bullz Racing\'s third Formula Student Car, featuring a lightweight chassis with lower center of gravity and improduction of Passive Aerodynamic Devices such as Sidepods.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.04s (75m)',
         weight: '235 kg',
         features: ['Lightweight Reinforced Chassis', 'Optimised Exhaust System', 'Redesigned Intake System'],
@@ -245,7 +318,7 @@ function App() {
       description: 'With some upgrades from BZR 02, BZR 2.1 was our first car to participate in Formula Bharat.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.8s (75m)',
         weight: '272.5 kg',
         features: ['Regenerative braking', 'Aluminium chassis', 'Custom battery pack'],
