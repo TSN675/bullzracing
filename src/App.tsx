@@ -133,6 +133,10 @@ function App() {
       points: [
         { name: 'First Team to Clear TI'},
         { name: 'Best in Engineering Excellence'},
+      ],
+      images: [],
+    },
+    {
       year: '2025',
       title: '5th Overall',
       event: 'Supra SAEIndia',
@@ -318,10 +322,9 @@ function App() {
       description: 'Our first 10 inch (wheel dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
       details: {
         powertrain: 'Combustion',
-        power: '27 hp / 23 Nm Torque',
-        acceleration: '5.2s • 75m',
-        weight: '255 kg',
-        weight: '217 kg',
+        power: '28 hp / 23 Nm Torque',
+        acceleration: '4.8s • 75m',
+        weight: '210 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
@@ -339,18 +342,13 @@ function App() {
       details: {
         powertrain: 'Combustion',
         power: '29 hp / 23 Nm Torque',
-        acceleration: '5.2s • 75m',
-        weight: '255 kg',
+        acceleration: '6.47s • 75m',
+        weight: '243 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
         `${import.meta.env.BASE_URL}Resources/Cars/IMG_7600.jpg`,
         `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full cropped.png`,
-        acceleration: '6.57s • 75m',
-        weight: '243 kg',
-        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
-      },
-      images: [
         `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2rolling.JPG`,
         `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2track.JPG`,
       ],
