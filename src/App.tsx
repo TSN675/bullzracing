@@ -133,6 +133,11 @@ function App() {
       points: [
         { name: 'First Team to Clear TI'},
         { name: 'Best in Engineering Excellence'},
+      year: '2025',
+      title: '5th Overall',
+      event: 'Supra SAEIndia',
+      description: 'Bullz Racing was the first team to complete Technical Inspection at Supra \'25, while performing to our maximum potential at dynamic events. We also won Best in Engineering Excellence, showcasing our technical advancements and engineering prowess.',
+      points: [
         { name: 'Computer Aided Engineering', score: 2 },
         { name: 'Skidpad', score: 4 },
         { name: 'Endurance', score: 5 },
@@ -145,6 +150,8 @@ function App() {
       images: [
         `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach1.JPG`,
         `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach2.JPG`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra25ach1.JPG`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra25ach2.jpg`,
       ],
     },
     {
@@ -307,11 +314,14 @@ function App() {
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4cropped.jpg`,
       specs: 'Custom Lightweight Aero Kit • Digital Dashboard • Improvised DAQ',
       description: 'Our first 10 inch (whee dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
+      specs: 'Custom Lightweight Aero Kit • 10 inch Wheels • Ram Air Intake',
+      description: 'Our first 10 inch (wheel dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
       details: {
         powertrain: 'Combustion',
         power: '27 hp / 23 Nm Torque',
         acceleration: '5.2s • 75m',
         weight: '255 kg',
+        weight: '217 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
@@ -323,6 +333,8 @@ function App() {
       name: 'BZR 3.2',
       image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.2 edited.jpg`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
+      specs: 'Bodywork Upgrades • Digital Dashboard • Improvised DAQ',
       description: 'Our first Formula Student Car to feature a full aerodynamics package.',
       details: {
         powertrain: 'Combustion',
@@ -334,6 +346,13 @@ function App() {
       images: [
         `${import.meta.env.BASE_URL}Resources/Cars/IMG_7600.jpg`,
         `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full cropped.png`,
+        acceleration: '6.57s • 75m',
+        weight: '243 kg',
+        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
+      },
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2rolling.JPG`,
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2track.JPG`,
       ],
     },
     {
@@ -877,7 +896,7 @@ function App() {
               transition={{ duration: 0.5 }}
             >
               <img
-                src="./Resources/Achievements/fb25ach1.jpg"
+                src="./Resources/Home/cover.jpg"
                 alt="Team working"
                 className="rounded-lg shadow-xl w-128"
               />
