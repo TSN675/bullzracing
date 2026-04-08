@@ -58,6 +58,30 @@ function App() {
 
   const heroSlides = [
     {
+      image: `${import.meta.env.BASE_URL}Resources/Home/fb26home.jpg`,
+      title: '4th Overall',
+      subtitle: 'Formula Bharat 2026',
+      desc: 'Kari Motor Speedway, Coimbatore'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4.jpg`,
+      title: 'BZR-4',
+      subtitle: 'BZR 4 Reveal',
+      desc: 'BMSCE, Bengaluru'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Home/supra25home.jpg`,
+      title: '5th Overall',
+      subtitle: 'Supra SAEIndia 2025',
+      desc: 'Buddh International Circuit, Noida'
+    },
+    {
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
+      title: 'BZR-3.2',
+      subtitle: 'Supra \'25',
+      desc: 'Buddh International Circuit, Noida'
+    },
+    {
       image: `${import.meta.env.BASE_URL}Resources/Home/fb25home.jpg`,
       title: '6th Overall',
       subtitle: 'Formula Bharat 2025',
@@ -76,7 +100,7 @@ function App() {
       desc: 'Buddh International Circuit, Noida'
     },
     {
-      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr3supra.png`,
+      image: `${import.meta.env.BASE_URL}Resources/Home/bzr3supra.png`,
       title: 'BZR-03',
       subtitle: 'Supra \'24',
       desc: 'Buddh International Circuit, Noida'
@@ -84,6 +108,45 @@ function App() {
   ];
 
   const achievements = [
+    {
+      year: '2026',
+      title: '4th Overall',
+      event: 'Formula Bharat',
+      description: "Our first time participating in dynamic events at Formula Bharat, and our first time completing endurance at FB :)\n A culmination of all our past learnings, and a gateway to all that follows.",
+      points: [
+        { name: 'Endurance', score: 2 },
+        { name: 'Engineering Design Presentation', score: 3 },
+        { name: 'Business Plan Presentation', score: 5 },
+        { name: 'Cost Report', score: 8 }
+      ],
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach1.jpeg`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach2.jpg`,
+      ],
+    }
+    ,
+    {
+      year: '2026',
+      title: '5th Overall',
+      event: 'Supra SAEIndia',
+      description: 'Bullz Racing was the first team to complete Technical Inspection at Supra \'25, showcasing our progress in preparation, while performing to our maximum potential at dynamic events.',
+      points: [
+        { name: 'First Team to Clear TI'},
+        { name: 'Best in Engineering Excellence'},
+        { name: 'Computer Aided Engineering', score: 2 },
+        { name: 'Skidpad', score: 4 },
+        { name: 'Endurance', score: 5 },
+        { name: 'Autocross', score: 7 },
+        { name: 'Acceleration', score: 8 },
+        
+        { name: 'Business Plan Presentation Design', score: 5 },
+        { name: 'Engineering Design Presentation', score: 5 }        
+      ],
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach1.JPG`,
+        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach2.JPG`,
+      ],
+    },
     {
       year: '2025',
       title: '6th Overall',
@@ -179,15 +242,108 @@ function App() {
     },
   ];
 
+  const newsletters = [
+    {
+      month: 'November 2025',
+      link: 'https://heyzine.com/flip-book/d3dec30d8a.html'
+    },
+    {
+      month: 'October 2025',
+      link: 'https://heyzine.com/flip-book/bcc64f7737.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC9uZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'September 2025',
+      link: 'https://heyzine.com/flip-book/b64cef0dbe.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC9y9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'July 2025',
+      link: 'https://heyzine.com/flip-book/1305fde485.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC98lleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'June 2025',
+      link: 'https://heyzine.com/flip-book/44777497f5.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnvhPIg2sWSVeQpO4IIUxqaZXMn-Y9b5O6Rl0Ka1T6Ie_2SgotOvvU_7LABnE_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'May 2025',
+      link: 'https://heyzine.com/flip-book/071142fff1.html'
+    },
+    {
+      month: 'April 2025',
+      link: 'https://heyzine.com/flip-book/2e189a44a0.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC-AZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'February 2025',
+      link: 'https://heyzine.com/flip-book/046aa3bb6e.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC-EFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'January 2025',
+      link: 'https://heyzine.com/flip-book/e5a53289ea.html?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRC-HRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae-E8iDaxZJV5Ck7gghTGpplcyf5j1vk7pGXQprVPoh7_ZKCi06-9T_ssAGcQ_aem_788glWnHGrQtQypVj0Im1Q'
+    },
+    {
+      month: 'December 2024',
+      link: 'https://heyzine.com/flip-book/039a71dc54.html'
+    },
+    {
+      month: 'November 2024',
+      link: 'https://heyzine.com/flip-book/6de9c274dc.html'
+    },
+    {
+      month: 'September 2024',
+      link: 'https://heyzine.com/flip-book/a55e78d1dd.html'
+    },
+    {
+      month: 'August 2024',
+      link: 'https://heyzine.com/flip-book/37d64d0cb5.html'
+    },
+    {
+      month: 'July 2024',
+      link: 'https://heyzine.com/flip-book/e3b913bcb6.html'
+    }
+  ];
+
   const cars = [
+    {
+      name: 'BZR 4',
+      image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4cropped.jpg`,
+      specs: 'Custom Lightweight Aero Kit • Digital Dashboard • Improvised DAQ',
+      description: 'Our first 10 inch (whee dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
+      details: {
+        powertrain: 'Combustion',
+        power: '27 hp / 23 Nm Torque',
+        acceleration: '5.2s • 75m',
+        weight: '255 kg',
+        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
+      },
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr4track.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Cars/bzr4rolling.jpeg`,
+      ],
+    },
+    {
+      name: 'BZR 3.2',
+      image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.2 edited.jpg`,
+      specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
+      description: 'Our first Formula Student Car to feature a full aerodynamics package.',
+      details: {
+        powertrain: 'Combustion',
+        power: '29 hp / 23 Nm Torque',
+        acceleration: '5.2s • 75m',
+        weight: '255 kg',
+        features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
+      },
+      images: [
+        `${import.meta.env.BASE_URL}Resources/Cars/IMG_7600.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full cropped.png`,
+      ],
+    },
     {
       name: 'BZR 3.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full aero.png`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
-      description: 'Our latest Formula Student Car featuring a full aerodynamics package and enhanced driver ergonomics.',
+      description: 'Our first Formula Student Car to feature a full aerodynamics package.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.2s • 75m',
         weight: '255 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
@@ -204,7 +360,7 @@ function App() {
       description: 'Bullz Racing\'s third Formula Student Car, featuring a lightweight chassis with lower center of gravity and improduction of Passive Aerodynamic Devices such as Sidepods.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.04s (75m)',
         weight: '235 kg',
         features: ['Lightweight Reinforced Chassis', 'Optimised Exhaust System', 'Redesigned Intake System'],
@@ -221,7 +377,7 @@ function App() {
       description: 'With some upgrades from BZR 02, BZR 2.1 was our first car to participate in Formula Bharat.',
       details: {
         powertrain: 'Combustion',
-        power: '32 hp / 31 Nm Torque',
+        power: '29 hp / 23 Nm Torque',
         acceleration: '5.8s (75m)',
         weight: '272.5 kg',
         features: ['Regenerative braking', 'Aluminium chassis', 'Custom battery pack'],
@@ -352,6 +508,12 @@ function App() {
     return () => controller.abort();
   }, [selectedInsight, page]);
 
+  useEffect(() => {
+    if (page === 'blog') {
+      window.scrollTo(0, 0);
+    }
+  }, [page]);
+
   const renderBlogParagraphs = (text: string) => (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
@@ -386,7 +548,7 @@ function App() {
 
           return (
             <p
-              className={`text-silver leading-relaxed mb-6 ${
+              className={`text-silver leading-relaxed mb-6 text-justify ${
                 isImageOnly ? 'flex flex-wrap justify-center gap-6' : ''
               }`}
               {...props}
@@ -625,14 +787,14 @@ function App() {
       {/* Hero Section */}
       {page === 'blog' ? (
         <section className="min-h-screen py-20 bg-dark">
-          <div className="max-w-5xl mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-2">
             <button
               onClick={closeBlogPage}
               className="mb-8 inline-flex items-center rounded-full border border-white/20 bg-black/50 px-4 py-2 text-sm text-white transition hover:bg-black/70"
             >
               ← Back to Bullz Racing
             </button>
-            <div className="glass-card rounded-3xl p-10 bg-black/70 border border-white/10">
+            <div className="glass-card rounded-3xl p-6 bg-black/70 border border-white/10">
               <h1 className="text-4xl font-bold text-gold mb-4">FB ’26: The One That Changed Us</h1>
               {isBlogLoading && <p className="text-silver">Loading blog content…</p>}
               {blogError && <p className="text-red-400">{blogError}</p>}
@@ -732,12 +894,12 @@ function App() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div className="glass-card p-6 rounded-lg text-center">
-                  <p className="text-3xl font-bold text-gold mb-2">50+</p>
+                  <p className="text-3xl font-bold text-gold mb-2">80+</p>
                   <p className="text-silver">Team Members</p>
                 </div>
                 <a href="#cars">
                   <div className="glass-card p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform">
-                    <p className="text-3xl font-bold text-gold mb-2">5</p>
+                    <p className="text-3xl font-bold text-gold mb-2">6</p>
                     <p className="text-silver">Completed FS Cars</p>
                   </div>
                 </a>
@@ -800,6 +962,21 @@ function App() {
                     <h4 className="text-2xl font-semibold text-gold">FB ’26: The One That Changed Us</h4>
                     <p className="text-silver mt-2">Open the full blog page for the complete story.</p>
                   </div>
+                </div>
+              ) : selectedInsight === 1 ? (
+                <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                  {newsletters.map((newsletter, index) => (
+                    <a
+                      key={index}
+                      href={newsletter.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-3xl border border-white/10 bg-black/50 p-5 transition hover:border-gold hover:bg-white/5"
+                    >
+                      <h4 className="text-2xl font-semibold text-gold">{newsletter.month} Newsletter</h4>
+                      <p className="text-silver mt-2">Click to read the newsletter.</p>
+                    </a>
+                  ))}
                 </div>
               ) : (
                 <p className="text-silver text-lg leading-relaxed">
