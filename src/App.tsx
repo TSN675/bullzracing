@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Trophy, Users, Building2, MessageSquare, Menu, X, ChevronLeft, ChevronRight, Mail, Phone, MapPin, ExternalLink} from 'lucide-react';
+import { Trophy, Users, Building2, MessageSquare, Menu, X, ChevronLeft, ChevronRight, Mail, Phone, MapPin, ExternalLink, Instagram, Linkedin, Facebook} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -46,6 +46,7 @@ function App() {
   const [blogError, setBlogError] = useState<string | null>(null);
   const [page, setPage] = useState<'home' | 'blog'>('home');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
 
   const openBlogPage = () => {
     setSelectedInsight(null);
@@ -58,57 +59,136 @@ function App() {
 
   const heroSlides = [
     {
+      image: `${import.meta.env.BASE_URL}Resources/Home/FB26_2_alt.jpg`,
+      title: 'FB \'26',
+      subtitle: 'The One That Changed Us',
+      desc: 'Our FB \'26 Story - click to read',
+      action: () => {
+        document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = insights.findIndex(a => a.id === 'blogs');
+          setTimeout(() => {
+            openBlogPage();
+          }, 200);
+            useEffect(() => {
+              if (page === 'blog') {
+                window.scrollTo(0, 0);
+              }
+            }, [page]);
+        }, 500); // adjust timing
+      }
+    },
+    {
       image: `${import.meta.env.BASE_URL}Resources/Home/fb26home.jpg`,
       title: '4th Overall',
       subtitle: 'Formula Bharat 2026',
-      desc: 'Kari Motor Speedway, Coimbatore'
+      desc: 'Kari Motor Speedway, Coimbatore',
+      action: () => {
+        document.getElementById("achievements")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = achievements.findIndex(a => a.id === "fb26");
+          setSelectedAchievement(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4.jpg`,
       title: 'BZR-4',
       subtitle: 'BZR 4 Reveal',
-      desc: 'BMSCE, Bengaluru'
+      desc: 'BMSCE, Bengaluru',
+      action: () => {
+        document.getElementById("cars")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = cars.findIndex(a => a.id === "bzr4");
+          setSelectedCar(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/supra25home.jpg`,
       title: '5th Overall',
       subtitle: 'Supra SAEIndia 2025',
-      desc: 'Buddh International Circuit, Noida'
+      desc: 'Buddh International Circuit, Noida',
+      action: () => {
+        document.getElementById("achievements")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = achievements.findIndex(a => a.id === "supra25");
+          setSelectedAchievement(index);
+        }, 500); // adjust timing
+      }
+      
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
       title: 'BZR-3.2',
       subtitle: 'Supra \'25',
-      desc: 'Buddh International Circuit, Noida'
+      desc: 'Buddh International Circuit, Noida',
+      action: () => {
+        document.getElementById("cars")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = cars.findIndex(a => a.id === "bzr3.2");
+          setSelectedCar(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/fb25home.jpg`,
       title: '6th Overall',
       subtitle: 'Formula Bharat 2025',
-      desc: 'Kari Motor Speedway, Coimbatore'
+      desc: 'Kari Motor Speedway, Coimbatore',
+      action: () => {
+        document.getElementById("achievements")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = achievements.findIndex(a => a.id === "fb25");
+          setSelectedAchievement(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/bzr3.1.jpg`,
       title: 'BZR-3.1',
       subtitle: 'FB \'25',
-      desc: 'Kari Motor Speedway, Coimbatore'
+      desc: 'Kari Motor Speedway, Coimbatore',
+      action: () => {
+        document.getElementById("cars")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = cars.findIndex(a => a.id === "bzr3.1");
+          setSelectedCar(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/supra24home.JPG`,
       title: '4th Overall',
       subtitle: 'Supra SAEIndia 2024',
       desc: 'Buddh International Circuit, Noida'
+      ,
+      action: () => {
+        document.getElementById("achievements")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = achievements.findIndex(a => a.id === "supra24");
+          setSelectedAchievement(index);
+        }, 500); // adjust timing
+      }
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/bzr3supra.png`,
       title: 'BZR-03',
       subtitle: 'Supra \'24',
-      desc: 'Buddh International Circuit, Noida'
+      desc: 'Buddh International Circuit, Noida',
+      action: () => {
+        document.getElementById("cars")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          const index = cars.findIndex(a => a.id === "bzr3");
+          setSelectedCar(index);
+        }, 500); // adjust timing
+      }
     },
   ];
 
   const achievements = [
     {
+      id: "fb26",
       year: '2026',
       title: '4th Overall',
       event: 'Formula Bharat',
@@ -123,20 +203,9 @@ function App() {
         `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach1.jpeg`,
         `${import.meta.env.BASE_URL}Resources/Achievements/fb26ach2.jpg`,
       ],
-    }
-    ,
-    {
-      year: '2026',
-      title: '5th Overall',
-      event: 'Supra SAEIndia',
-      description: 'Bullz Racing was the first team to complete Technical Inspection at Supra \'25, showcasing our progress in preparation, while performing to our maximum potential at dynamic events.',
-      points: [
-        { name: 'First Team to Clear TI'},
-        { name: 'Best in Engineering Excellence'},
-      ],
-      images: [],
     },
     {
+      id: "supra25",
       year: '2025',
       title: '5th Overall',
       event: 'Supra SAEIndia',
@@ -152,13 +221,12 @@ function App() {
         { name: 'Engineering Design Presentation', score: 5 }        
       ],
       images: [
-        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach1.JPG`,
-        `${import.meta.env.BASE_URL}Resources/Achievements/supra24ach2.JPG`,
         `${import.meta.env.BASE_URL}Resources/Achievements/supra25ach1.JPG`,
         `${import.meta.env.BASE_URL}Resources/Achievements/supra25ach2.jpg`,
       ],
     },
     {
+      id: "fb25",
       year: '2025',
       title: '6th Overall',
       event: 'Formula Bharat',
@@ -175,6 +243,7 @@ function App() {
     }
     ,
     {
+      id: "supra24",
       year: '2024',
       title: '4th Overall',
       event: 'Supra SAEIndia',
@@ -194,6 +263,7 @@ function App() {
       ],
     },
     {
+      id: "fb24",
       year: '2024',
       title: '9th Overall',
       event: 'Formula Bharat',
@@ -209,6 +279,7 @@ function App() {
       ],
     },
     {
+      id: "supra23",
       year: '2023',
       title: '9th Overall',
       event: 'Supra SAEIndia',
@@ -224,6 +295,7 @@ function App() {
       ],
     },
     {
+      id: "supra22",
       year: '2022',
       title: '27th Overall',
       event: 'Supra SAEIndia',
@@ -236,6 +308,7 @@ function App() {
 
   const insights = [
     {
+      id: 'blogs',
       title: 'Blogs',
       description: 'Read our latest behind-the-scenes stories, engineering insights, and race prep highlights from the Bullz Racing team.',
       content: '',
@@ -314,17 +387,16 @@ function App() {
 
   const cars = [
     {
+      id: "bzr4",
       name: 'BZR 4',
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr4cropped.jpg`,
-      specs: 'Custom Lightweight Aero Kit • Digital Dashboard • Improvised DAQ',
-      description: 'Our first 10 inch (whee dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
-      specs: 'Custom Lightweight Aero Kit • 10 inch Wheels • Ram Air Intake',
+      specs: 'Custom Lightweight Aero Kit • 10 inch Wheels • Anti Ackerman Steering',
       description: 'Our first 10 inch (wheel dia.) Formula Student Car featuring a full aerodynamics package. Also our first car to complete endurance at FB :)',
       details: {
         powertrain: 'Combustion',
-        power: '28 hp / 23 Nm Torque',
-        acceleration: '4.8s • 75m',
-        weight: '210 kg',
+        power: '27 hp / 23 Nm Torque',
+        acceleration: '5.2s • 75m',
+        weight: '217 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
@@ -333,27 +405,25 @@ function App() {
       ],
     },
     {
+      id: "bzr3.2",
       name: 'BZR 3.2',
-      image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.2 edited.jpg`,
-      specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr 3.2 edited.jpg`,
       specs: 'Bodywork Upgrades • Digital Dashboard • Improvised DAQ',
       description: 'Our first Formula Student Car to feature a full aerodynamics package.',
       details: {
         powertrain: 'Combustion',
         power: '29 hp / 23 Nm Torque',
-        acceleration: '6.47s • 75m',
+        acceleration: '6.57s • 75m',
         weight: '243 kg',
         features: ['In-house Manufactured Aero Package with redesigned sidepods', 'Custom Tachometer', 'High Performance Cooling System'],
       },
       images: [
-        `${import.meta.env.BASE_URL}Resources/Cars/IMG_7600.jpg`,
-        `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full cropped.png`,
         `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2rolling.JPG`,
         `${import.meta.env.BASE_URL}Resources/Cars/bzr3.2track.JPG`,
       ],
     },
     {
+      id: "bzr3.1",
       name: 'BZR 3.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 3.1 full aero.png`,
       specs: 'Custom In-house Manufactured Aero Kit • Improvised Telemetry • Enhanced Steering',
@@ -371,6 +441,7 @@ function App() {
       ],
     },
     {
+      id: "bzr3",
       name: 'BZR 03',
       image: `${import.meta.env.BASE_URL}Resources/Cars/bzr3supra.png`,
       specs: 'Lightweight Chassis • Optimized Cooling System • Improved Packaging',
@@ -388,6 +459,7 @@ function App() {
       ],
     },
     {
+      id: "bzr2.1",
       name: 'BZR 2.1',
       image: `${import.meta.env.BASE_URL}Resources/Cars/Bullz x FB 23 (124) - Copy.JPG`,
       specs: 'Improvised In-House Manufacturing of Composites • Basic Telemetry • Improved Driver Safety',
@@ -405,8 +477,9 @@ function App() {
       ],
     },
     {
+      id: "bzr2",
       name: 'BZR 02',
-      image: `${import.meta.env.BASE_URL}Resources/Cars/IMG-20230713-WA0011.jpg`,
+      image: `${import.meta.env.BASE_URL}Resources/Cars/BZR 02 Supra.jpg`,
       specs: 'Pushrod Suspension • Lighter Bodywork • Bezier Curve Intake',
       description: 'BZR 02 was our first car to clear Technical Scrutiny and participate in Endurance at SAE Supra.',
       details: {
@@ -417,11 +490,12 @@ function App() {
         features: ['Custom Differential', 'Pushrod Suspension', 'Improved Packaging'],
       },
       images: [
-        `${import.meta.env.BASE_URL}Resources/Cars/IMG-20230713-WA0011.jpg`,
+        `${import.meta.env.BASE_URL}Resources/Cars/BZR 02 Supra.jpg`,
         `${import.meta.env.BASE_URL}Resources/Cars/Supra 2023.jpg`,
       ],
     },
     {
+      id: "bzr1",
       name: 'BZR 01',
       image: `${import.meta.env.BASE_URL}Resources/Cars/IMG_5969.JPG`,
       specs: 'Combustion Engine • First FS Car • 390cc Engine',
@@ -448,6 +522,19 @@ function App() {
     setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
   };  
 
+  const handleNavClick = (id: string) => {
+    // If on blog page, switch back first
+    if (page === 'blog') {
+      window.location.hash = '';
+
+      // Wait for DOM to render home page
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
@@ -712,7 +799,7 @@ function App() {
     {
       name: "A Square Engineering Consultancy Services",
       category: "In-Kind",
-      logo: "https://example.com/logo15.png",
+      logo: `${import.meta.env.BASE_URL}Resources/Sponsors/A Square Engineering.png`,
       description: "Engineering high-performance electric drivetrains.",
     },
     {
@@ -741,11 +828,24 @@ function App() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
-              <img
-                src="./Resources/Logos/Bullz text.png"
-                alt="BULLZ RACING"
-                className="h-10 w-auto object-cover"
-              />
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  // If you're on blog page, switch back
+                  window.location.hash = '';
+
+                  // Scroll to top/home
+                  document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                <img
+                  src="./Resources/Logos/Bullz text.png"
+                  alt="BULLZ RACING"
+                  className="h-10 w-auto object-cover cursor-pointer"
+                />
+              </a>
             </div>
 
             <div className="md:hidden">
@@ -762,6 +862,10 @@ function App() {
                 <a
                   key={item.id}
                   href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.id);
+                  }}
                   className={`text-sm font-medium transition-colors ${
                     activeSection === item.id
                       ? 'text-gold drop-shadow-[0_0_8px_rgba(0,0,0,1)]'
@@ -838,7 +942,8 @@ function App() {
               {heroSlides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
+              onClick={slide.action}
+              className={`absolute inset-0 cursor-pointer transition-opacity duration-1000 ${
                 currentSlide === index ? 'opacity-100' : 'opacity-0'
               }`}
             >
@@ -1009,7 +1114,7 @@ function App() {
       <section id="achievements" className="py-20 bg-dark-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-gold">Achievements</h2>
-          <div className="grid md:grid-cols-5 gap-8">
+          <div className="grid md:grid-cols-7 gap-5">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
@@ -1034,31 +1139,40 @@ function App() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-gold ">Our Cars</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {cars.map((car, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer"
-                onClick={() => setSelectedCar(index)}
-              >
-                <div className="relative overflow-hidden rounded-lg">
-                  <img
-                    src={car.image}
-                    alt={car.name}
-                    className="w-full h-[300px] object-cover transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
-                    <div className="absolute bottom-0 p-6">
-                      <h3 className="text-2xl font-bold text-gold mb-2">{car.name}</h3>
-                      <p className="text-silver">{car.specs}</p>
+            {cars.map((car, index) => {
+              const isLast = index === cars.length - 1;
+              const isOddLastRow = cars.length % 3 === 1;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`group cursor-pointer ${
+                    isLast && isOddLastRow ? "md:col-start-2" : ""
+                  }`}
+                  onClick={() => setSelectedCar(index)}
+                >
+                  <div className="relative overflow-hidden rounded-lg">
+                    <img
+                      src={car.image}
+                      alt={car.name}
+                      className="w-full h-[300px] object-cover transition-transform group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                      <div className="absolute bottom-0 p-6">
+                        <h3 className="text-2xl font-bold text-gold mb-2">
+                          {car.name}
+                        </h3>
+                        <p className="text-silver">{car.specs}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1159,6 +1273,31 @@ function App() {
               <p className="text-silver leading-relaxed">
                 We invite you to join us, and help fuel our future in motorsport.
               </p>
+              <h3 className="text-2xl font-bold text-white mb-6">Follow us on our Socials!</h3>
+              <div className="flex items-center space-x-6">
+                <a
+                  href="https://instagram.com/bullzracing_bmsce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="text-gold w-10 h-10" />
+                </a>
+                <a
+                  href="https://in.linkedin.com/company/bullzracing-bmsce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="text-gold w-10 h-10" />
+                </a>
+                <a
+                  href="https://www.facebook.com/bullzracing.bmsce/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="text-gold w-10 h-10" />
+                </a>
+              </div>
+              
             </div>
           </div>
         </div>
