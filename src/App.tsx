@@ -1246,7 +1246,7 @@ function App() {
                 <Phone className="text-gold w-6 h-6" />
                 <div>
                   <p className="text-white font-medium">Phone</p>
-                  <a href="tel:+919752079103" className="text-silver hover:text-gold transition-colors">
+                  <a href="tel:+919008502922" className="text-silver hover:text-gold transition-colors">
                     +91 90085 02922
                   </a>
                 </div>
