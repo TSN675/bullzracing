@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Trophy, Users, Building2, MessageSquare, Menu, X, ChevronLeft, ChevronRight, Mail, Phone, MapPin, ExternalLink, Instagram, Linkedin, Facebook} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -46,11 +47,12 @@ function App() {
   const [blogError, setBlogError] = useState<string | null>(null);
   const [page, setPage] = useState<'home' | 'blog'>('home');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedBlog, setSelectedBlog] = useState<{title: string; file: string; author: string; date: string;} | null>(null);
   
 
-  const openBlogPage = () => {
+  const openBlogPage = (blog: { id: string }) => {
     setSelectedInsight(null);
-    window.location.hash = '#blog';
+    window.location.hash = `#blog/${blog.id}`;
   };
 
   const closeBlogPage = () => {
@@ -68,7 +70,7 @@ function App() {
         setTimeout(() => {
           const index = insights.findIndex(a => a.id === 'blogs');
           setTimeout(() => {
-            openBlogPage();
+            openBlogPage({ id: 'blogs' });
           }, 200);
             useEffect(() => {
               if (page === 'blog') {
@@ -312,7 +314,7 @@ function App() {
       title: 'Blogs',
       description: 'Read our latest behind-the-scenes stories, engineering insights, and race prep highlights from the Bullz Racing team.',
       content: '',
-      source: '/Resources/Blogs/FB26.md',
+      source: '',
     },
     {
       title: 'Newsletters',
@@ -324,6 +326,25 @@ function App() {
       description: 'Stay informed regarding all team announcements and club acitivities from Bullz Racing.',
       content: 'Coming soon!',
     },
+  ];
+
+  const blogs = [
+    {
+      id: 'tachometer',
+      title: 'RGB Based Tachometer Display for BZR4',
+      description: 'From concept to cockpit: developing a custom RGB tachometer for BZR4.', 
+      author: 'Prateek Moji',
+      date: '25th May, 2026',
+      source: '/Resources/Blogs/Tachometer.md',
+    },
+    {
+      id: 'fb26',
+      title: "FB '26: The One That Changed Us",
+      description: 'A behind-the-scenes look at our most defining FB campaign yet.',
+      author: 'S Prapthisha and Ishan Patil',
+      date: '8th April, 2026',
+      source: '/Resources/Blogs/FB26.md',
+    }
   ];
 
   const newsletters = [
@@ -559,12 +580,33 @@ function App() {
 
   useEffect(() => {
     const updatePage = () => {
-      setPage(window.location.hash === '#blog' ? 'blog' : 'home');
+        const hash = window.location.hash;
+        if (hash.startsWith('#blog/')) {
+          const blogId = hash.replace('#blog/', '');
+          const foundBlog = blogs.find(
+            (blog) => blog.id === blogId
+          );
+        if (foundBlog) {
+          setSelectedBlog({
+            title: foundBlog.title,
+            file: foundBlog.source,
+            author: foundBlog.author,
+            date: foundBlog.date,
+          });
+          setPage('blog');
+          return;
+        }
+      }
+      else {
+        setSelectedBlog(null);
+        setPage('home');
+      }
     };
-
     updatePage();
     window.addEventListener('hashchange', updatePage);
-    return () => window.removeEventListener('hashchange', updatePage);
+    return () => {
+      window.removeEventListener('hashchange', updatePage);
+    };
   }, []);
 
   useEffect(() => {
@@ -577,7 +619,7 @@ function App() {
     }
 
     const insight = insights[0];
-    if (!insight.source) {
+    if (!selectedBlog) {
       setBlogText('');
       setBlogError(null);
       setIsBlogLoading(false);
@@ -589,7 +631,7 @@ function App() {
 
     const controller = new AbortController();
 
-    fetch(insight.source, { signal: controller.signal })
+    fetch(selectedBlog.file, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to load blog content.');
@@ -610,7 +652,7 @@ function App() {
       .finally(() => setIsBlogLoading(false));
 
     return () => controller.abort();
-  }, [selectedInsight, page]);
+  }, [selectedBlog, page]);
 
   useEffect(() => {
     if (page === 'blog') {
@@ -621,6 +663,7 @@ function App() {
   const renderBlogParagraphs = (text: string) => (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ node, ...props }) => (
           <h1 className="text-4xl font-bold text-gold mb-6" {...props} />
@@ -916,7 +959,8 @@ function App() {
               ← Back to Bullz Racing
             </button>
             <div className="glass-card rounded-3xl p-6 bg-black/70 border border-white/10">
-              <h1 className="text-4xl font-bold text-gold mb-4">FB ’26: The One That Changed Us</h1>
+              <h1 className="text-4xl font-bold text-gold mb-4">{selectedBlog?.title}</h1>
+              <p className="text-silver mb-6 text-lg italic">{selectedBlog?.author} • {selectedBlog?.date}</p>
               {isBlogLoading && <p className="text-silver">Loading blog content…</p>}
               {blogError && <p className="text-red-400">{blogError}</p>}
               {!isBlogLoading && !blogError && renderBlogParagraphs(blogText)}
@@ -1077,13 +1121,19 @@ function App() {
               <h3 className="text-3xl font-bold text-gold">{insights[selectedInsight].title}</h3>
               {selectedInsight === 0 ? (
                 <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
-                  <div
-                    className="rounded-3xl border border-white/10 bg-black/50 p-5 cursor-pointer transition hover:border-gold hover:bg-white/5"
-                    onClick={openBlogPage}
-                  >
-                    <h4 className="text-2xl font-semibold text-gold">FB ’26: The One That Changed Us</h4>
-                    <p className="text-silver mt-2">Open the full blog page for the complete story.</p>
+                      {blogs.map((blog, index) => (
+                        <div
+                          key={index}
+                          className="rounded-3xl border border-white/10 bg-black/50 p-5 cursor-pointer transition hover:border-gold hover:bg-white/5"
+                          onClick={() => {
+                            window.location.hash = `#blog/${blog.id}`;
+                            setSelectedInsight(null);
+                          }}
+                        >
+                    <h4 className="text-2xl font-semibold text-gold">{blog.title}</h4>
+                    <p className="text-silver mt-2">{blog.description}</p>
                   </div>
+                ))}
                 </div>
               ) : selectedInsight === 1 ? (
                 <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
