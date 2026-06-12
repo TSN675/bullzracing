@@ -12,12 +12,15 @@ In conclusion, BZR4 needed a new tachometer. Something fancier. Something more D
 Immediately, Inspiration was drawn from the shift indicator lights present on many race cars from F1 and Nascar. The idea of operating it as a shift indicator, with a converging light pattern instead of a linear pattern was also considered.  
 Finally, the chosen setup included the following:  
 
-11 Common Anode RGB THT LEDs
-  These would each represent 1k RPM, just like the old version, allowing us to represent our peak RPM of 10.5k RPM (A "flaw" as one might call it, is the 11th LED is never illuminated, but the choice is in software).
-Custom PCB with all SMD components
-  After the horrendous space efficiency we achieved last time, I was determined to do better. Ever single component other than the LEDs were now in SMD package. A custom PCB was required to fit the module into a specifically designed space above the Display and now extra care was to be taken into routing the entire module within that footprint.
-CH32V003 RISC-V based Microcontroller**  
-  To drive the display, I switched to a much cheaper, much smaller microcontroller platform, that also turned out to be much more reliable as well. I have a multitude of projects in the pipeline with this specific microcontroller, and I've been loving it so far. To Hell With The Nano!
+~ 11 Common Anode RGB THT LEDs: These would each represent 1k RPM, just like the old version, allowing us to represent our peak RPM of 10.5k RPM (A "flaw" as one might call it, is the 11th LED is never illuminated, but the choice is in software).
+
+
+
+~ Custom PCB with all SMD components: After the horrendous space efficiency we achieved last time, I was determined to do better. Ever single component other than the LEDs were now in SMD package. A custom PCB was required to fit the module into a specifically designed space above the Display and now extra care was to be taken into routing the entire module within that footprint.
+
+
+
+~ CH32V003 RISC-V based Microcontroller: To drive the display, I switched to a much cheaper, much smaller microcontroller platform, that also turned out to be much more reliable as well. I have a multitude of projects in the pipeline with this specific microcontroller, and I've been loving it so far. To Hell With The Nano!
 
 
 
