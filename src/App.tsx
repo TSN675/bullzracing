@@ -334,7 +334,7 @@ function App() {
       title: 'RGB Based Tachometer Display for BZR4',
       description: 'Concept to Cockpit #1: Developing a custom RGB based tachometer display for BZR4.', 
       author: 'Prateek Moji',
-      date: '25th May, 2026',
+      date: '15th June, 2026',
       source: '/Resources/Blogs/Tachometer.md',
     },
     {
