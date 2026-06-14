@@ -730,7 +730,13 @@ function App() {
               style={vscDarkPlus}
               language={match[1]}
               PreTag="div"
+              customStyle={{
+                borderRadius: '1.5rem',
+                padding: '1.5rem',
+                margin: '1.5rem 0'
+              }}
             >
+
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
