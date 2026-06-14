@@ -6,6 +6,8 @@ import { Trophy, Users, Building2, MessageSquare, Menu, X, ChevronLeft, ChevronR
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -61,23 +63,21 @@ function App() {
 
   const heroSlides = [
     {
+      image: '/Resources/Home/TachoBgV2.jpg',
+      title: 'BZR4 - Tachometer',
+      subtitle: 'Concept to Cockpit #1',
+      desc: 'Custom RGB Based Tachometer Display for BZR4 - click to read',
+      action: () => {
+        openBlogPage({ id: 'tachometer' }); 
+      }
+    },
+    {
       image: `${import.meta.env.BASE_URL}Resources/Home/FB26_2_alt.jpg`,
       title: 'FB \'26',
       subtitle: 'The One That Changed Us',
       desc: 'Our FB \'26 Story - click to read',
       action: () => {
-        document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" });
-        setTimeout(() => {
-          const index = insights.findIndex(a => a.id === 'blogs');
-          setTimeout(() => {
-            openBlogPage({ id: 'blogs' });
-          }, 200);
-            useEffect(() => {
-              if (page === 'blog') {
-                window.scrollTo(0, 0);
-              }
-            }, [page]);
-        }, 500); // adjust timing
+        openBlogPage({ id: 'fb26' });
       }
     },
     {
@@ -332,7 +332,7 @@ function App() {
     {
       id: 'tachometer',
       title: 'RGB Based Tachometer Display for BZR4',
-      description: 'From concept to cockpit: developing a custom RGB tachometer for BZR4.', 
+      description: 'Concept to Cockpit #1: Developing a custom RGB based tachometer display for BZR4.', 
       author: 'Prateek Moji',
       date: '25th May, 2026',
       source: '/Resources/Blogs/Tachometer.md',
@@ -722,6 +722,23 @@ function App() {
             />
           );
         },
+        pre: ({ children }) => <>{children}</>,
+        code ({ className, children, ...props }) {
+          const match = /language-(\w+)/.exec(className || '');
+          return match ? (
+            <SyntaxHighlighter
+              style={vscDarkPlus}
+              language={match[1]}
+              PreTag="div"
+            >
+              {String(children).replace(/\n$/, '')}
+            </SyntaxHighlighter>
+          ) : (
+            <code className="bg-gray-800 text-white px-1 py-0.5 rounded" {...props}>
+              {children}
+            </code>
+          );
+        }
       }}
     >
       {text}

@@ -340,6 +340,15 @@ int main()
 
 
 ## Completed Product in Action ## 
-<video controls width="100%">
-  <source src="/Resources/Blogs/TachoComplete.mp4" type="video/mp4">
-</video>
+<div style="display:flex; justify-content:center; margin:2rem 0;">
+  <div style="
+    width:60%;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.12);
+  ">
+    <video controls width="100%" style="display:block;">
+      <source src="/Resources/Blogs/TachoComplete.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
