@@ -58,9 +58,10 @@ function App() {
   };
 
   const closeBlogPage = () => {
-    window.location.hash = '';
+    setTimeout(() => {
+      window.location.hash = '';
+    }, 300);
   };
-
   const heroSlides = [
     {
       image: '/Resources/Home/TachoBgV2.jpg',
@@ -68,8 +69,16 @@ function App() {
       subtitle: 'Concept to Cockpit #1',
       desc: 'Custom RGB Based Tachometer Display for BZR4 - click to read',
       action: () => {
-        openBlogPage({ id: 'tachometer' }); 
-      }
+        document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          const index = insights.findIndex(a => a.id === 'blogs');
+          setSelectedInsight(index);
+        }, 500);
+        setTimeout(() => {
+          openBlogPage({ id: 'tachometer' }); 
+        }, 1000);
+      } 
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/FB26_2_alt.jpg`,
@@ -77,8 +86,16 @@ function App() {
       subtitle: 'The One That Changed Us',
       desc: 'Our FB \'26 Story - click to read',
       action: () => {
-        openBlogPage({ id: 'fb26' });
-      }
+        document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          const index = insights.findIndex(a => a.id === 'blogs');
+          setSelectedInsight(index);
+        }, 500);
+        setTimeout(() => {
+          openBlogPage({ id: 'fb26' }); 
+        }, 1000);
+      } 
     },
     {
       image: `${import.meta.env.BASE_URL}Resources/Home/fb26home.jpg`,
@@ -334,7 +351,7 @@ function App() {
       title: 'RGB Based Tachometer Display for BZR4',
       description: 'Concept to Cockpit #1: Developing a custom RGB based tachometer display for BZR4.', 
       author: 'Prateek Moji',
-      date: '16th June, 2026',
+      date: '17th June, 2026',
       source: '/Resources/Blogs/Tachometer.md',
     },
     {
@@ -1010,7 +1027,7 @@ function App() {
             <div
               key={index}
               onClick={slide.action}
-              className={`absolute inset-0 cursor-pointer transition-opacity duration-1000 ${
+              className={`absolute inset-0 cursor-pointer transition-opacity duration-5000 ${
                 currentSlide === index ? 'opacity-100' : 'opacity-0'
               }`}
             >
